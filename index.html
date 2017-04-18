@@ -2,9 +2,604 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FeCollectionBox</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: rgb(204, 232, 207);
+        }
+        .head {
+            background-color: #3D414D;
+            position: sticky;
+            top: 0;
+            z-index: 99;
+        }
+        header {
+            width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+        }
+        header a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0 16px;
+            line-height: 3;
+            text-align: center;
+            display: inline-block;
+            /*font-weight: bold;*/
+            font-size: 18px;
+            transition: all .6s;
+            position: relative;
+        }
+        header a:before, header a:after {
+            position: absolute;
+            left: 50%;
+            top: 100%;
+            content: '';
+            height: 2px;
+            width: 0;
+            background-color: #cf4646;
+            transition: width .2s linear;
+            transform: translateY(-100%); 
+            /*display: inline-block;*/
+        }
+        header a:after {
+            transform: rotateZ(180deg);
+            transform-origin: left top;
+        }
+        header a:hover {
+            text-shadow: 0 0 10px #fff;
+        }
+        header a:hover:before, header a:hover:after {
+            width: 50%;
+        }
+        
+        .container {
+            display: none;
+            width: 900px;
+            margin: 0 auto;
+        }
+        .container.active {
+            display: block;
+        }
+        .container dt {
+            color: #3F4A52;
+            background-color: #F9D9D9;
+            line-height: 2;
+            padding: 0 10px;
+            border-radius: 3px;
+            margin-bottom: 20px;
+
+            /*好css3*/
+            width:fit-content;
+            width:-webkit-fit-content;
+            width:-moz-fit-content;
+        }
+        .container a {
+            display: block;
+            width: fit-content;
+            background-color: #33495F;
+            color: #96b97d;
+            line-height: 2;
+            border-radius: 3px;
+            padding: 0 10px;
+            margin-bottom: 10px;
+            text-decoration: none;
+            position: relative;
+        }
+        .container a div {
+            height: 0;
+            overflow: hidden;
+            transition: height .6s;
+        }
+        .container a img {
+            height: 0px;
+            transition: height .6s;
+        }
+        .container a:hover img {
+            height: 250px;
+        }
+        .container a:hover div {
+            height: 260px;
+        }
+        .container a ul {
+            padding-left: 20px linear;
+            color: #A4B4C4;
+        }
+        .container h4 ul {
+            background-color: #3D414D;
+            border-radius: 3px;
+            padding: 10px 0 10px 30px;
+            color: #91b0de;
+        }
+    </style>
 </head>
 <body>
-    hhhh
+    <div class="head">
+        <header>
+            <img src="./img/logo.png" alt="">
+            
+            <a href="javascript:;">css3相关</a>
+            <a href="javascript:;">canvas与svg</a>
+            <a href="javascript:;">交互好的网页</a>
+            <a href="javascript:;">常用效果</a>
+        </header>
+    </div>
+        
+    <div class="container active">
+        <div>
+            <h4>
+                1、box-shadow曲线投影效果
+                <ul>
+                    <li>目的：用于视觉美化，增加立体感与真实感</li>
+                    <li>应用场景：不限</li>
+                </ul>
+            </h4>
+            
+            <a target="_black" href="http://www.zhangxinxu.com/wordpress/2010/12/css3-box-shadow%E5%AE%9E%E7%8E%B0%E7%BA%B8%E5%BC%A0%E7%9A%84%E6%9B%B2%E7%BA%BF%E6%8A%95%E5%BD%B1%E6%95%88%E6%9E%9C/">
+                CSS3 box-shadow实现纸张的曲线投影效果
+                <div>
+                    <img src="./img/1-1.png" alt="">
+                </div>
+            </a>
+        </div>
+
+        <div>
+            <h4>
+                2、css3百叶窗
+                <ul>
+                    <li>应用场景：常用于展示某些内容</li>
+                </ul>
+            </h4>
+            <a target="_black" href="http://www.htmleaf.com/Demo/201506192070.html">
+                c3百叶窗
+                <div>
+                    <img src="./img/6-1.jpg" alt="">
+                </div>
+            </a>
+            <a target="_black" href="http://www.htmleaf.com/Demo/201609023951.html">
+                百叶窗式轮播图
+                <div>
+                    <img src="./img/6-2.jpg" alt="">
+                </div>
+            </a>   
+        </div>
+
+        <div>
+            <h4>
+                3、c3翻转幻灯片
+                <ul>
+                    <li>应用场景：常用于展示某些内容</li>
+                </ul>
+            </h4>
+            <a target="_black" href="https://tympanus.net/Development/CircleFlipSlideshow/">
+                翻转幻灯片
+                <div>
+                    <img src="./img/7-1.jpg" alt="">
+                </div>
+            </a>
+        </div>
+
+        <div>
+            <h4>
+                4、一些css3的loading
+                <ul>
+                    <li>应用场景：加载数据时给用户的提示信息，尽量抚平他焦躁的心</li>
+                </ul>
+            </h4>
+            <a target="_black" href="https://tympanus.net/codrops/2012/11/14/creative-css-loading-animations/">
+                一些css3的loading
+                <div>
+                    <img src="./img/9-1.png" alt="">
+                </div>
+            </a>
+            <a target="_black" href="http://codepen.io/Rplus/pen/lEDBj">
+                c3animate边框动画
+                <div>
+                    <img src="./img/9-2.png" alt="">
+                </div>
+            </a>
+        </div>
+
+        <div>
+            <h4>
+                5、css3 Tab与下拉菜单
+                <ul>
+                    <li>应用场景：想要承载更多内容，同时要页面简洁，不看的就遮起来</li>
+                </ul>
+            </h4>
+            <a target="_black" href="http://demo.tutorialzine.com/2012/10/css3-dropdown-menu/">
+                css3 Tab
+                <div>
+                    <img src="./img/10-1.png" alt="">
+                </div>
+            </a>
+
+            <a target="_black" href="https://tympanus.net/Tutorials/CustomDropDownListStyling/index.html">
+                几个下拉
+                <div>
+                    <img src="./img/11-1.png" alt="">
+                </div>
+            </a>
+        </div>
+
+        <div>
+            <h4>
+                6、圆圈悬停效果
+                <ul>
+                    <li>应用场景：利用c3新属性，做更多优美交互</li>
+                </ul>
+            </h4>
+            <a target="_black" href="https://tympanus.net/Tutorials/CircleHoverEffects/index7.html">
+                Circle Hover Effects
+                <div>
+                    <img src="./img/12-1.png" alt="">
+                </div>
+            </a>
+        </div>
+
+        <div>
+            <h4>
+                7、3D效果
+                <ul>
+                    <li>应用场景：供参考</li>
+                </ul>
+            </h4>
+            <a target="_black" href="https://tympanus.net/codrops/2012/07/20/3d-flipping-circle-with-css3-and-jquery/">
+                用CSS3和jQuery实现3D翻转圈
+                <div>
+                    <img src="./img/13-1.png" alt="">
+                </div>
+            </a>
+
+            <a target="_black" href="https://tympanus.net/codrops/2012/09/25/3d-restaurant-menu-concept/">
+                3D餐厅菜单的效果
+                <div>
+                    <img src="./img/14-1.png" alt="">
+                </div>
+            </a>
+
+            <a target="_black" href="https://tympanus.net/Development/Exhibition/">
+                3D室展
+                <div>
+                    <img src="./img/16-1.png" alt="">
+                </div>
+            </a>
+
+            <a target="_black" href="https://tympanus.net/codrops/2013/01/08/3d-book-showcase/">
+                3D书展
+                <div>
+                    <img src="./img/17-1.png" alt="">
+                </div>
+            </a>
+
+            <a target="_black" href="https://tympanus.net/codrops/2012/12/11/fullscreen-pageflip-layout/">
+                全屏翻页布局
+                <div>
+                    <img src="./img/18-1.png" alt="">
+                </div>
+            </a>
+        </div>
+
+        <div>
+            <h4>
+                8、镜面效果
+                <ul>
+                    <li>应用场景：哪里都可以，写他仅仅因为酷炫交互中还没被用烂</li>
+                </ul>
+            </h4>
+            <a target="_black" href="https://tympanus.net/Development/MirrorEffect/index.html">
+                镜面效果
+                <div>
+                    <img src="./img/15-1.png" alt="">
+                </div>
+            </a>
+        </div>
+        
+        <div>
+            <h4>
+                9、css3实现的input样式
+                <ul>
+                    <li>应用场景：看起来立体、简洁的按钮效果</li>
+                </ul>
+            </h4>
+            <a target="_black" href="http://codepen.io/bbodine1/pen/novBm">
+                css3实现的input样式
+                <div>
+                    <img src="./img/19-1.png" alt="">
+                </div>
+            </a>
+            
+            <a target="_black" href="http://www.htmleaf.com/css3/ui-design/201704014433.html">
+                3D按钮效果
+                <div>
+                    <img src="./img/19-2.png" alt="">
+                </div>
+            </a>
+            <a target="_black" href="http://www.htmleaf.com/Demo/201704084446.html">
+                hover按钮交互参考
+                <div>
+                    <img src="./img/19-3.png" alt="">
+                </div>
+            </a>
+            
+        </div>
+    </div>
+
+    <!--canvas与svg-->
+    <div class="container">
+        <div>
+            <h4>
+                1、svg和canvas实现
+                <ul>
+                    <li>应用场景：前端复杂动画</li>
+                </ul>
+            </h4>
+            <a target="_black" href="http://www.zhangxinxu.com/wordpress/2011/05/%E5%9F%BA%E4%BA%8Ecanvas%E7%94%BB%E5%B8%83%E7%9A%84%E4%B8%A4%E4%B8%AA%E7%82%AB%E9%85%B7%E6%95%88%E6%9E%9C%E5%B1%95%E7%A4%BA/">canvas</a>
+
+            <a target="_black" href="http://jsrun.net/t3pKp/edit">
+                动球放大镜效果
+                <div>
+                    <img src="./img/2-2.jpg" alt="">
+                </div>
+            </a>
+            
+            <a target="_black" href="http://jsrun.net/PkKKp/edit">
+                svg水波圆环动效
+                <div>
+                    <img src="./img/2-3.png" alt="">
+                </div>
+            </a>
+            
+            <a target="_black" href="http://jsrun.net/vkKKp/edit">
+                canvas旋转光球
+                <div>
+                    <img src="./img/2-4.jpg" alt="">
+                </div>
+            </a>
+        </div>
+
+        <div>
+            <h4>
+                2、动态满天花瓣
+                <ul>
+                    <li>应用场景：这个要是做成页面背景，就快脱离单身狗了</li>
+                </ul>
+            </h4>
+            <a target="_black" href="http://jsrun.net/jspKp/edit">
+                动态满天花瓣
+                <div>
+                    <img src="./img/20-1.png" alt="">
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!--交互好的网页-->
+    <div class="container">
+        <div>
+            <h4>
+                1、tab栏c3交互与Directors部分的hover，以及
+            </h4>
+            <a target="_black" href="http://toolofna.com/#!/contact">
+                干净利落
+                <div>
+                    <img src="./img/4-1.jpg" alt="">
+                </div>
+            </a>
+            <h4>2、close交互新颖</h4>
+            <a target="_black" href="http://whiteboard.is/">close交</a>
+        </div>
+    </div>
+
+    <!--常用效果-->
+    <div class="container">
+        <div>
+            <h4>
+                1、视差滚动
+                <ul>
+                    <li>目的：为了画面更酷炫</li>
+                    <li>应用场景：多见于轮播图，页面滚动等</li>
+                </ul>
+            </h4>
+            <a target="_black" href="https://codepen.io/eehayman/pen/qdGZJr">
+                视差滚动
+                <div>
+                    <img src="./img/3-1.jpg" alt="">
+                </div>
+            </a>
+            
+            <a target="_black" href="https://codepen.io/keithclark/pen/JycFw">视差滚动(css实现)</a>
+            
+            <a target="_black" href="http://www.htmleaf.com/Demo/201701184328.html">
+                视差滚动轮播图
+                <div>
+                    <img src="./img/3-3.jpg" alt="">
+                </div>
+            </a>
+        </div>
+
+        <div>
+            <h4>
+                2、css3百叶窗
+                <ul>
+                    <li>应用场景：常用于展示某些内容</li>
+                </ul>
+            </h4>
+            <a target="_black" href="http://www.htmleaf.com/Demo/201506192070.html">
+                c3百叶窗
+                <div>
+                    <img src="./img/6-1.jpg" alt="">
+                </div>
+            </a>
+            <a target="_black" href="http://www.htmleaf.com/Demo/201609023951.html">
+                百叶窗式轮播图
+                <div>
+                    <img src="./img/6-2.jpg" alt="">
+                </div>
+            </a>   
+        </div>
+
+        <div>
+            <h4>
+                3、扩大叠加效果(Expanding Overlay Effect)
+                <ul>
+                    <li>应用场景：整体布局</li>
+                </ul>
+            </h4>
+            <a target="_black" href="https://tympanus.net/codrops/2013/01/17/putting-css-clip-to-work-expanding-overlay-effect/">
+                Expanding Overlay Effect(扩大叠加效果)
+                <div>
+                    <img src="./img/8-1.jpg" alt="">
+                </div>
+            </a>
+            <a target="_black" href="https://codepen.io/madkap/pen/bgrsI">
+                codepen扩大叠加效果解析
+                <div>
+                    <img src="./img/8-2.jpg" alt="">
+                </div>
+            </a>
+        </div>
+
+        <div>
+            <h4>
+                4、瀑布流
+                <ul>
+                    <li>应用场景：用于页面懒加载提高首屏加载速度</li>
+                </ul>
+            </h4>
+            <a target="_black" href="http://www.htmleaf.com/jQuery/pubuliuchajian/201704104447.html">
+                瀑布流
+                <div>
+                    <img src="./img/21-1.png" alt="">
+                </div>
+            </a>
+            <a target="_black" href="http://www.htmleaf.com/jQuery/pubuliuchajian/201704124451.html">
+                瀑布流加载动画
+                <div>
+                    <img src="./img/21-2.png" alt="">
+                </div>
+            </a>
+        </div>
+        
+        <div>
+            <h4>
+                5、jquery插件效果抖动窗口
+                <ul>
+                    <li>应用场景：提高交互感</li>
+                </ul>
+            </h4>
+            <a target="_black" href="http://www.htmleaf.com/html5/html5-canvas/201704064441.html">
+                抖动窗口
+                <div>
+                    <img src="./img/22-1.png" alt="">
+                </div>
+            </a>
+        </div>
+
+        <div>
+            <h4>
+                6、css3旋转魔方
+                <ul>
+                    <li>应用场景：为了酷炫</li>
+                </ul>
+            </h4>
+            <a target="_black" href="http://www.htmleaf.com/Demo/201704044438.html">
+                旋转魔方
+                <div>
+                    <img src="./img/23-1.png" alt="">
+                </div>
+            </a>
+        </div>
+
+        <div>
+            <h4>
+                7、万花筒效果
+                <ul>
+                    <li>应用场景：展示某些东西，常用作广告</li>
+                </ul>
+            </h4>
+            <a target="_black" href="http://www.htmleaf.com/Demo/201512072875.html">
+                css3万花筒
+                <div>
+                    <img src="./img/24-1.png" alt="">
+                </div>
+            </a>
+            <a target="_black" href="http://www.htmleaf.com/Demo/201611164198.html">
+                jq+c3万花筒
+                <div>
+                    <img src="./img/24-2.png" alt="">
+                </div>
+            </a>
+        </div>
+
+        <div>
+            <h4>
+                8、apple TV海报视差效果、锤子官网banner图3D效果
+                <ul>
+                    <li>应用场景：新颖的交互效果</li>
+                </ul>
+            </h4>
+            <a target="_black" href="http://www.jianshu.com/p/87ab6cd13ab8">
+                apple TV海报视差效果
+                <div>
+                    <img src="./img/25-1.png" alt="">
+                </div>
+            </a>
+            <a target="_black" href="http://qingjin.me/font-end/%E9%94%A4%E5%AD%90%E7%A7%91%E6%8A%80%E9%A6%96%E9%A1%B5banner%E5%9B%BE3d%E6%95%88%E6%9E%9C/">
+                锤子官网banner图3D效果
+                <div>
+                    <img src="./img/25-2.png" alt="">
+                </div>
+            </a>
+        </div>
+
+        <div>
+            <h4>
+                9、css3 Tab、下拉菜单、手风琴特效
+                <ul>
+                    <li>应用场景：想要承载更多内容，同时要页面简洁，不看的就遮起来</li>
+                </ul>
+            </h4>
+            <a target="_black" href="http://demo.tutorialzine.com/2012/10/css3-dropdown-menu/">
+                css3 Tab
+                <div>
+                    <img src="./img/10-1.png" alt="">
+                </div>
+            </a>
+
+            <a target="_black" href="https://tympanus.net/Tutorials/CustomDropDownListStyling/index.html">
+                几个下拉
+                <div>
+                    <img src="./img/11-1.png" alt="">
+                </div>
+            </a>
+
+            <a target="_black" href="http://www.htmleaf.com/jQuery/Accordion/201612284289.html">
+                jquery扁平风格的手风琴特效
+                <div>
+                    <img src="./img/26-1.png" alt="">
+                </div>
+            </a>
+        </div>
+    </div>
+
+
+    <script>
+        var tabs = document.querySelectorAll('.head a'),
+            containers = document.querySelectorAll('.container');
+        
+        tabs.forEach(function(v, i) {
+            v.addEventListener('click', function() {
+                containers.forEach(function(v) {
+                    v.classList.remove('active');
+                });
+                containers[i].classList.add('active');
+            });
+        });
+    </script>
 </body>
 </html>
